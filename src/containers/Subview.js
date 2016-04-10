@@ -33,11 +33,18 @@ import NavigationBar from 'react-native-navbar';
  */
 import React,
 { 	
+  Component,
   StyleSheet,
   View,
-  Text
+  Text, 
+  TextInput
 }
 from 'react-native';
+
+/**
+ * The platform neutral button
+ */
+const  Button = require('apsl-react-native-button');
 
 /**
  * If your app uses Redux action creators, you can add them here...
@@ -45,6 +52,8 @@ from 'react-native';
  */
 const actions = [
 ];
+
+// var QRCodeScreen = require('./QRCodeScreen');
 
 /**
  *  Instead of including all app states via ...state
@@ -86,6 +95,12 @@ var styles = StyleSheet.create({
     fontFamily: 'BodoniSvtyTwoITCTT-Book',
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  scanButton: {
+    backgroundColor: '#FF3366',
+    borderColor:  '#FF3366',
+    marginLeft: 10,
+    marginRight: 10    
   }
 });
 
@@ -93,26 +108,42 @@ var styles = StyleSheet.create({
  * ## Subview class
  */
 let Subview = React.createClass({
+
+  handlePress() {
+    // Actions.Subview({
+    //   title: 'Subview'
+    //   // you can add additional props to be passed to Subview here...
+    // });
+    
+
+
+  },
   
   render() {
     var titleConfig = {
-      title: "Subview"
+      title: "容器收货"
     };
     
     var leftButtonConfig = {
-      title: 'Back',
+      title: '返回',
       handler: Actions.pop
     };
     
     return(
       <View>
-	<NavigationBar
-            title={ titleConfig }
-            leftButton={ leftButtonConfig }
-	/>
-	<View style={ styles.container }>
-	  <Text style={ styles.summary }>Subview</Text>
-	</View>
+      	<NavigationBar
+                  title={ titleConfig }
+                  leftButton={ leftButtonConfig }
+      	/>
+
+      	<View style={ styles.container }>
+      	  <Text>当前容器码:</Text>
+          <TextInput style={{height:30, borderColor: 'blue', borderWidth:1}}></TextInput>
+          <Button style={ styles.scanButton } onPress={ this.handlePress.bind(this) }>
+           {'扫描二维码'}
+          </Button>
+      	</View>
+
       </View>
     );
   }

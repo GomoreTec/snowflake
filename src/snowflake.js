@@ -180,27 +180,30 @@ export default function native(platform) {
                      title="Subview"/>
 
 	      <Scene key="Tabbar" tabs={true} default="Main">
-	        <Scene key="Logout"
-                       title="logout"
-                       icon={TabIcon}
-                       iconName={"sign-out"}
-                       hideNavBar={true}
-                       component={Logout}/>
                 
-	        <Scene key="Main"
-                       title="main"
+          <Scene key="Main"
+                       title="首页"
                        iconName={"home"}
                        icon={TabIcon}                       
                        hideNavBar={true}
                        component={Main}
                        initial={true}/>
 
-                <Scene key="Profile"
-                       title="profile"
+          <Scene key="Profile"
+                       title="设置"
                        icon={TabIcon}                       
                        iconName={"gear"}
                        hideNavBar={true}
                        component={Profile}/>
+
+      
+	        <Scene key="Logout"
+                       title="logout"
+                       icon={TabIcon}
+                       iconName={"sign-out"}
+                       hideNavBar={true}
+                       component={Logout}/>
+          
 	      </Scene>
 	    </Scene>
 	  </Router>
@@ -208,9 +211,9 @@ export default function native(platform) {
       );
     }
   });
+
   /**
    * registerComponent to the AppRegistery and off we go....
    */
-
   AppRegistry.registerComponent('snowflake', () => Snowflake);
 }

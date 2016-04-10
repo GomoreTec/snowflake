@@ -122,15 +122,21 @@ class Main extends Component {
     return(
       <View style={styles.container}>
         <View>
-        <Header isFetching={this.props.auth.form.isFetching}
-                showState={this.props.global.showState}
-                currentState={this.props.global.currentState}
-                onGetState={this.props.actions.getState}
-                onSetState={this.props.actions.setState}
-        />        
-    	<Button style={ styles.button } onPress={ this.handlePress.bind(this) }>
-	  {'Navigate to Subview'}
-        </Button>
+          <Header isFetching={this.props.auth.form.isFetching}
+                  showState={this.props.global.showState}
+                  currentState={this.props.global.currentState}
+                  onGetState={this.props.actions.getState}
+                  onSetState={this.props.actions.setState}
+          />      
+            
+        	<Button style={ styles.button } onPress={ this.handlePress.bind(this) }>
+    	       {'容器收货'}
+          </Button>
+
+          <Button style={ styles.button } onPress={ this.handlePress.bind(this) }>
+           {'单品收货'}
+          </Button>
+
         </View>
       </View>
     );
